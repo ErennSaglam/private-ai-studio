@@ -15,6 +15,13 @@ data/*
 !adapters/law-qa-r8-best/adapters.safetensors
 !adapters/law-qa-r8-best/adapter_config.json
 
+# Exception: the law-QA data (Apache-2.0, public, ~6 MB): the prepared train/valid/test files,
+# the RAG corpus and the raw download, so the experiment can be inspected and re-run as is.
+!data/law-qa/
+!data/raw/
+data/raw/*
+!data/raw/turkish_law_qa/
+
 # Python
 .venv/
 __pycache__/

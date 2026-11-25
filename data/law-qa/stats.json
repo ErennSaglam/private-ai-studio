@@ -1,0 +1,105 @@
+{
+  "seed": 42,
+  "system_prompt": "Sen Türk hukuku konusunda uzman bir asistansın. Soruları Türk mevzuatına ve yargı kararlarına dayanarak kısa, açık ve Türkçe cevapla.",
+  "raw_rows": 18305,
+  "dropped_meta_rows": 194,
+  "dropped_duplicate_questions": 260,
+  "clean_rows": 17851,
+  "groups": {
+    "train": 40,
+    "valid": 5,
+    "test": 5
+  },
+  "near_duplicate_leaks": [
+    {
+      "split": "valid",
+      "question": "Özel hayatın gizliliğini ihlal eden içerikler neden hukuka aykırı olarak değerlendirilmektedir?",
+      "jaccard": 0.838
+    }
+  ],
+  "rows": {
+    "train": 400,
+    "valid": 49,
+    "test": 50
+  },
+  "tokens": {
+    "train": {
+      "full": {
+        "n": 400,
+        "mean": 139.8,
+        "p50": 137,
+        "p95": 171,
+        "max": 204,
+        "sum": 55935
+      },
+      "prompt": {
+        "n": 400,
+        "mean": 96.1,
+        "p50": 95,
+        "p95": 107,
+        "max": 116,
+        "sum": 38449
+      },
+      "answer": {
+        "n": 400,
+        "mean": 43.7,
+        "p50": 40,
+        "p95": 73,
+        "max": 108,
+        "sum": 17486
+      }
+    },
+    "valid": {
+      "full": {
+        "n": 49,
+        "mean": 139.4,
+        "p50": 139,
+        "p95": 159,
+        "max": 185,
+        "sum": 6829
+      },
+      "prompt": {
+        "n": 49,
+        "mean": 96.5,
+        "p50": 96,
+        "p95": 103,
+        "max": 107,
+        "sum": 4727
+      },
+      "answer": {
+        "n": 49,
+        "mean": 42.9,
+        "p50": 43,
+        "p95": 66,
+        "max": 81,
+        "sum": 2102
+      }
+    },
+    "test": {
+      "full": {
+        "n": 50,
+        "mean": 135.0,
+        "p50": 130,
+        "p95": 160,
+        "max": 189,
+        "sum": 6748
+      },
+      "prompt": {
+        "n": 50,
+        "mean": 95.0,
+        "p50": 94,
+        "p95": 103,
+        "max": 114,
+        "sum": 4749
+      },
+      "answer": {
+        "n": 50,
+        "mean": 40.0,
+        "p50": 36,
+        "p95": 59,
+        "max": 94,
+        "sum": 1999
+      }
+    }
+  }
+}

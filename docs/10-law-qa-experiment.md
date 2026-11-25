@@ -248,13 +248,17 @@ Kontrol konfigürasyonundan **tek bir değişken** değiştirilerek 5 eğitim ya
 | Deney | Değişen | En iyi iter | Val loss (min) | Test loss | Token F1 | ROUGE-L | Süre |
 |---|---|---|---|---|---|---|---|
 | control | — | 100 | 1.993 | 1.959 | 0.421 | 0.414 | 37 dk |
-| lr-5e-6 | learning_rate 5e-6 | — | — | — | — | — | — |
-| lr-2e-5 | learning_rate 2e-5 | — | — | — | — | — | — |
-| rank-4 | rank 4 | — | — | — | — | — | — |
-| rank-16 | rank 16 | — | — | — | — | — | — |
-| layers-8 | num_layers 8 | — | — | — | — | — | — |
+| lr-5e-6 | learning_rate 5e-6 | 200 | 2.007 | 1.988 | 0.422 | 0.419 | 34 dk |
+| lr-2e-5 | learning_rate 2e-5 | 100 | 1.983 | 1.944 | 0.439 | 0.432 | ~35 dk* |
+| rank-4 | rank 4 | 200 | 2.010 | 1.984 | 0.415 | 0.411 | 34 dk |
+| rank-16 | rank 16 | 100 | 1.995 | 1.957 | — | — | ~33 dk |
+| layers-8 | num_layers 8 | — | — | — | — | — | Çalıştırılmadı |
 
-Boş hücreler ölçüm bitince doldurulacak. Otomatik rapor: `training/results/law-qa/report.md`.
+\* Kayıtlı süre 9 saat 23 dakika; gece bilgisayar uykuya geçtiği için. Eğitimin kendisi diğerleriyle aynı sürede bitiyor.
+
+rank-16 deneyinin 50 soruluk cevap değerlendirmesi, toplantı öncesinde GPU'yu boşaltmak için yarıda durduruldu; bu yüzden F1 ve ROUGE-L değeri yok. layers-8 deneyi henüz çalıştırılmadı.
+
+**Yorum:** Bütün deneylerde test hatası 1.944 ile 1.988 arasında kaldı. Bu farklar 50 soruluk bir test setinde anlamlı sayılacak kadar büyük değil. Öğrenme hızı sonucun kalitesini değil, en iyi noktaya ulaşma hızını değiştirdi: yarıya inince en iyi nokta 100. adımdan 200. adıma kaydı. Rank'ı 16'ya çıkarmak parametre sayısını iki katına çıkardı, ama sonucu değiştirmedi; bu veri için rank 8 yeterli. Her deneyde en iyi sonuç 1–2. epoch'ta geldi, sonrasında model ezberlemeye başladı.
 
 ## 10. Yeniden üretme
 

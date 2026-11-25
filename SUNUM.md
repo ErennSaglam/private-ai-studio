@@ -36,6 +36,74 @@ Toplam süre yaklaşık 40 dakika.
 
 ---
 
+## Gösterimde sorulacak sorular
+
+Bu soruların cevapları önceden denendi. Ayarlar panelinde **sıcaklık 0** ve sistem mesajı aşağıdaki hukuk mesajı olmalı; aksi halde cevaplar değişebilir.
+
+```text
+Sen Türk hukuku konusunda uzman bir asistansın. Soruları Türk mevzuatına ve yargı kararlarına dayanarak kısa, açık ve Türkçe cevapla.
+```
+
+### 1. Doğru cevap verdiği soru
+
+```text
+Ayırt edicilik unsuru olmayan işaretlerin marka olarak tescil edilmesi mümkün müdür?
+```
+
+- **Modelin cevabı:** "Ayırt edicilik unsuru olmayan işaretlerin marka olarak tescil edilmesi mümkün değildir."
+- **Doğru cevap:** Aynısı, kelimesi kelimesine.
+- **Söyleyeceğin:** "Model eğitimde gördüğü bu soruya, veri setindeki cevapla birebir aynı cevabı verdi. Hukuk dilini ve cevap biçimini öğrenmiş."
+
+### 2. Anlamı tersine çevirdiği soru
+
+```text
+Haksız işgalde bulunan kişinin iyiniyetli olması durumunda ecrimisil talep edilebilir mi?
+```
+
+- **Modelin cevabı:** "…ecrimisil talep **edilebilir**."
+- **Doğru cevap:** "…ecrimisil talep **edilemeyecektir**."
+- **Söyleyeceğin:** "Cümle neredeyse aynı, ama tek bir ek anlamı tamamen tersine çevirdi. Hukukta bu kabul edilemez bir hata. Model hukuk dilini öğrendi ama bilgiyi güvenilir şekilde öğrenmedi. Bu yüzden bilginin RAG ile kaynaktan verilmesi gerekiyor."
+
+### 3. Sayıyı yanlış söylediği sorular (isteğe bağlı)
+
+```text
+Türk vatandaşlığı için Türkiye'de ne kadar süre kesintisiz ikamet etmek gerekmektedir?
+```
+
+Model "3 yıl" diyor; doğrusu **5 yıl**.
+
+```text
+Türk vatandaşlığı başvurusu için gerekli olan biyometrik fotoğraf sayısı nedir?
+```
+
+Model "3" diyor; doğrusu **2 adet**.
+
+### 4. Her seferinde farklı cevap verdiği soru (isteğe bağlı)
+
+Bu soruyu sorarken sıcaklığı **0,7** yap ve aynı soruyu iki üç kez sor:
+
+```text
+Karşılıksız çek düzenleme suçunda ceza zamanaşımı süresi ne kadardır?
+```
+
+Model her seferinde başka bir süre söylüyor (6 ay, 3 yıl, 45 gün, 1 yıl…); doğrusu **10 yıl**. **Söyleyeceğin:** "Model bu bilgiyi bilmiyor. Bilseydi her seferinde aynı cevabı verirdi."
+
+### 5. Modelin genel bilgisinin bozulmadığını gösteren soru (isteğe bağlı)
+
+Sistem mesajını Ayarlar'dan silip İngilizce sor:
+
+```text
+Who is Messi?
+```
+
+Model "Lionel Messi is a famous Argentine soccer player…" diye doğru cevap veriyor. **Söyleyeceğin:** "Hukuk eğitimi modelin genel bilgisini bozmadı, çünkü LoRA orijinal tablolara dokunmuyor. Aynı soruyu Türkçe sorunca ise cevap bozuluyor; bu da modelin Türkçede zayıf olduğunu gösteriyor."
+
+### Eğitim ve test sorularının tamamı
+
+Modelin eğitimde gördüğü 400 soru `data/law-qa/train.csv`, hiç görmediği 50 test sorusu `data/law-qa/test.csv` dosyasında. Modelin bütün test sorularına verdiği cevaplar `training/results/law-qa/predictions_lora.jsonl` dosyasında.
+
+---
+
 ## 1. Projenin amacı (3 dk)
 
 > Hocam, şirketler yapay zekâyı genellikle ChatGPT gibi bulut servisleri üzerinden kullanıyor. Bu durumda yazılan her soru ve yüklenen her doküman başka bir şirketin sunucusuna gidiyor. Sözleşme, müşteri bilgisi ya da kaynak kod gibi gizli veriler için bu büyük bir risk.

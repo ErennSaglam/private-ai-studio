@@ -39,3 +39,9 @@ $ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --tes
 $ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label rank-4 --adapter adapters/law-qa-rank-4-best
   done in 74s
 $ mlx_lm.lora -c /Users/erensaglam/Developer/fine turing/private-ai-studio/training/configs/series/rank-16.yaml
+  done in 2720s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/select_best.py /Users/erensaglam/Developer/fine turing/private-ai-studio/training/results/law-qa/train_rank-16.log adapters/law-qa-rank-16
+  done in 0s
+$ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --test --test-batches -1 --batch-size 4 --mask-prompt --max-seq-length 512 --adapter-path adapters/law-qa-rank-16-best --seed 42
+  done in 17s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label rank-16 --adapter adapters/law-qa-rank-16-best

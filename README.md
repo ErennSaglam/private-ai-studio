@@ -61,7 +61,7 @@ Bu projede bir yapay zekâ modelini tamamen kendi bilgisayarımızda çalıştı
 | Ölçme ve karşılaştırma | ✅ Çalışıyor |
 | Eğitilmiş modelin API'ye bağlanması | ✅ Çalışıyor |
 | Doküman arama (RAG) | 🟡 Basit bir ilk sürüm hazır |
-| Farklı ayarlarla karşılaştırmalı eğitimler | 🔄 Sürüyor |
+| Farklı ayarlarla karşılaştırmalı eğitimler | 🟡 5 deneyin 4'ü tamamlandı |
 | Kullanıcı girişi ve sohbet geçmişi | ❌ Henüz yok |
 
 ---
@@ -105,7 +105,7 @@ Projeyi GitHub'dan indirin. **git**, kod projelerini indirmeye ve sürümlerini 
 git clone https://github.com/ErennSaglam/private-ai-studio.git
 ```
 
-İndirilen proje, hukuk verisiyle eğitilmiş adapter dosyasını da (`adapters/law-qa-r8-best`, 22 MB) içerir. Böylece eğitim yapmadan eğitilmiş modeli deneyebilirsiniz. Model dosyaları ise boyutları büyük olduğu için GitHub'da tutulmaz; kurulum sırasında indirilir.
+İndirilen proje, hukuk verisiyle eğitilmiş adapter dosyasını (`adapters/law-qa-r8-best`, 22 MB), eğitimde kullanılan veriyi (`data/law-qa`) ve bütün deney sonuçlarını (`training/results/law-qa`) da içerir. Böylece eğitim yapmadan eğitilmiş modeli deneyebilir, eğitim ve test sorularını inceleyebilirsiniz. Model dosyaları ise boyutları büyük olduğu için GitHub'da tutulmaz; kurulum sırasında indirilir.
 
 Proje klasörüne girin:
 
@@ -584,7 +584,7 @@ Python ortamını açın:
 source backend/.venv/bin/activate
 ```
 
-**1. Veriyi indirin.** Bu adım internet ister ve yaklaşık 2 MB indirir:
+**1. Veriyi indirin.** Veri GitHub deposunda zaten var (`data/raw/turkish_law_qa`); projeyi `git clone` ile indirdiyseniz bu adımı atlayabilirsiniz. Veriyi kaynağından yeniden indirmek isterseniz (internet gerekir, yaklaşık 2 MB):
 
 ```bash
 mkdir -p data/raw/turkish_law_qa
@@ -703,7 +703,7 @@ Ayrıntılar: [docs/08-security-and-offline-operation.md](docs/08-security-and-o
 | 4 | Eğitim verisini hazırlamak | ✅ Tamamlandı |
 | 5 | Modeli LoRA ile eğitmek | ✅ Tamamlandı |
 | 6 | Eğitilmiş modeli API'ye bağlamak | ✅ Tamamlandı |
-| 7 | Farklı ayarlarla karşılaştırmalı eğitimler | 🔄 Sürüyor |
+| 7 | Farklı ayarlarla karşılaştırmalı eğitimler | 🟡 5 deneyin 4'ü tamamlandı |
 | 8 | Kapsamlı değerlendirme (insan değerlendirmesi dahil) | 🟡 Kısmen |
 | 9 | Doküman arama (RAG) | 🟡 Basit sürüm hazır |
 | 10 | Kurumsal kullanım (kullanıcı girişi, yetkilendirme, kayıt tutma) | ⏳ Planlandı |
