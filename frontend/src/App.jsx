@@ -11,7 +11,9 @@ const SUGGESTIONS = [
 ]
 
 const DEFAULT_SETTINGS = {
-  systemPrompt: 'Sen yardımsever bir asistansın. Kısa, net ve Türkçe cevap ver.',
+  // Written in English on purpose: the 1B model copies the language of the instruction itself.
+  // A Turkish instruction made it answer English questions in Turkish; this one keeps the user's language.
+  systemPrompt: "You are a helpful assistant. Always reply in the same language as the user's message. Keep answers short and clear.",
   temperature: 0.7,
   maxTokens: 512,
 }
