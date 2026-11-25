@@ -1,0 +1,263 @@
+{
+  "control": {
+    "config": {
+      "model": "models/Llama-3.2-1B-Instruct-4bit",
+      "train": true,
+      "data": "data/law-qa",
+      "fine_tune_type": "lora",
+      "mask_prompt": true,
+      "num_layers": 16,
+      "lora_parameters": {
+        "rank": 8,
+        "scale": 20.0,
+        "dropout": 0.0
+      },
+      "batch_size": 4,
+      "grad_accumulation_steps": 1,
+      "iters": 600,
+      "learning_rate": 1e-05,
+      "val_batches": -1,
+      "steps_per_report": 10,
+      "steps_per_eval": 50,
+      "save_every": 50,
+      "adapter_path": "adapters/law-qa-r8",
+      "max_seq_length": 512,
+      "grad_checkpoint": true,
+      "seed": 42,
+      "test_batches": -1
+    },
+    "curve": {
+      "best": {
+        "iter": 100,
+        "val_loss": 1.993,
+        "folder": "adapters/law-qa-r8-best"
+      },
+      "last": {
+        "iter": 600,
+        "val_loss": 2.741
+      }
+    },
+    "test_base": {
+      "test_loss": 3.318,
+      "test_ppl": 27.597
+    },
+    "test_last": {
+      "test_loss": 2.718,
+      "test_ppl": 15.147
+    },
+    "test_best": {
+      "test_loss": 1.959,
+      "test_ppl": 7.089
+    },
+    "eval": {
+      "base": {
+        "label": "base",
+        "model": "/Users/erensaglam/Developer/fine turing/private-ai-studio/models/Llama-3.2-1B-Instruct-4bit",
+        "adapter": null,
+        "n": 50,
+        "max_tokens": 256,
+        "temperature": 0.0,
+        "exact_match": 0.0,
+        "token_f1": 0.152,
+        "rouge_l": 0.1464,
+        "length_ratio_median": 5.1635,
+        "generated_tokens_mean": 196.7,
+        "hit_max_tokens": 35,
+        "tokens_per_second_median": 24.200000000000003,
+        "seconds_total": 329.0,
+        "peak_memory_gb_max": 0.935,
+        "prompt_tokens_mean": 94.98,
+        "rag_k": 0,
+        "retrieval_hit_rate": null
+      },
+      "lora": {
+        "label": "lora",
+        "model": "/Users/erensaglam/Developer/fine turing/private-ai-studio/models/Llama-3.2-1B-Instruct-4bit",
+        "adapter": "adapters/law-qa-r8-best",
+        "n": 50,
+        "max_tokens": 256,
+        "temperature": 0.0,
+        "exact_match": 0.0,
+        "token_f1": 0.4212,
+        "rouge_l": 0.4144,
+        "length_ratio_median": 0.918,
+        "generated_tokens_mean": 62.86,
+        "hit_max_tokens": 6,
+        "tokens_per_second_median": 75.1,
+        "seconds_total": 101.2,
+        "peak_memory_gb_max": 1.025,
+        "prompt_tokens_mean": 94.98,
+        "rag_k": 0,
+        "retrieval_hit_rate": null
+      },
+      "rag": {
+        "label": "rag",
+        "model": "/Users/erensaglam/Developer/fine turing/private-ai-studio/models/Llama-3.2-1B-Instruct-4bit",
+        "adapter": null,
+        "n": 50,
+        "max_tokens": 256,
+        "temperature": 0.0,
+        "exact_match": 0.0,
+        "token_f1": 0.2609,
+        "rouge_l": 0.2553,
+        "length_ratio_median": 2.333,
+        "generated_tokens_mean": 145.18,
+        "hit_max_tokens": 23,
+        "tokens_per_second_median": 93.4,
+        "seconds_total": 194.7,
+        "peak_memory_gb_max": 1.077,
+        "prompt_tokens_mean": 256.52,
+        "rag_k": 3,
+        "retrieval_hit_rate": 0.14,
+        "retrieval_support_f1_mean": 0.3238
+      },
+      "lora_rag": {
+        "label": "lora_rag",
+        "model": "/Users/erensaglam/Developer/fine turing/private-ai-studio/models/Llama-3.2-1B-Instruct-4bit",
+        "adapter": "adapters/law-qa-r8-best",
+        "n": 50,
+        "max_tokens": 256,
+        "temperature": 0.0,
+        "exact_match": 0.02,
+        "token_f1": 0.4483,
+        "rouge_l": 0.4468,
+        "length_ratio_median": 1.0,
+        "generated_tokens_mean": 46.7,
+        "hit_max_tokens": 2,
+        "tokens_per_second_median": 77.1,
+        "seconds_total": 49.7,
+        "peak_memory_gb_max": 1.404,
+        "prompt_tokens_mean": 256.52,
+        "rag_k": 3,
+        "retrieval_hit_rate": 0.14,
+        "retrieval_support_f1_mean": 0.3238
+      }
+    },
+    "note": "test_last/test_best were verified by re-measurement with mlx_lm.lora --test and with tuner.trainer.evaluate (iter100: valid 1.991, test 1.959; iter600: valid 2.751, test 2.718); the stored values match. retrieval_hit_rate was recomputed as answer support@3 (training/posthoc_retrieval.py)."
+  },
+  "lr-5e-6": {
+    "change": {
+      "learning_rate": 5e-06
+    },
+    "train_seconds": 2031.6,
+    "curve": {
+      "best": {
+        "iter": 200,
+        "val_loss": 2.007,
+        "folder": "adapters/law-qa-lr-5e-6-best"
+      },
+      "last": {
+        "iter": 600,
+        "val_loss": 2.493
+      }
+    },
+    "test_best": {
+      "test_loss": 1.988,
+      "test_ppl": 7.299
+    },
+    "eval": {
+      "label": "lr-5e-6",
+      "model": "/Users/erensaglam/Developer/fine turing/private-ai-studio/models/Llama-3.2-1B-Instruct-4bit",
+      "adapter": "adapters/law-qa-lr-5e-6-best",
+      "n": 50,
+      "max_tokens": 256,
+      "temperature": 0.0,
+      "exact_match": 0.0,
+      "token_f1": 0.4223,
+      "rouge_l": 0.419,
+      "length_ratio_median": 1.155,
+      "generated_tokens_mean": 77.26,
+      "hit_max_tokens": 9,
+      "tokens_per_second_median": 75.15,
+      "seconds_total": 64.0,
+      "peak_memory_gb_max": 1.008,
+      "prompt_tokens_mean": 94.98,
+      "rag_k": 0,
+      "retrieval_hit_rate": null
+    }
+  },
+  "lr-2e-5": {
+    "change": {
+      "learning_rate": 2e-05
+    },
+    "train_seconds": 33806.4,
+    "curve": {
+      "best": {
+        "iter": 100,
+        "val_loss": 1.983,
+        "folder": "adapters/law-qa-lr-2e-5-best"
+      },
+      "last": {
+        "iter": 600,
+        "val_loss": 2.796
+      }
+    },
+    "test_best": {
+      "test_loss": 1.944,
+      "test_ppl": 6.985
+    },
+    "eval": {
+      "label": "lr-2e-5",
+      "model": "/Users/erensaglam/Developer/fine turing/private-ai-studio/models/Llama-3.2-1B-Instruct-4bit",
+      "adapter": "adapters/law-qa-lr-2e-5-best",
+      "n": 50,
+      "max_tokens": 256,
+      "temperature": 0.0,
+      "exact_match": 0.0,
+      "token_f1": 0.4387,
+      "rouge_l": 0.432,
+      "length_ratio_median": 1.0,
+      "generated_tokens_mean": 54.94,
+      "hit_max_tokens": 4,
+      "tokens_per_second_median": 83.75,
+      "seconds_total": 39.3,
+      "peak_memory_gb_max": 1.008,
+      "prompt_tokens_mean": 94.98,
+      "rag_k": 0,
+      "retrieval_hit_rate": null
+    }
+  },
+  "rank-4": {
+    "change": {
+      "lora_parameters": {
+        "rank": 4
+      }
+    },
+    "train_seconds": 2040.6,
+    "curve": {
+      "best": {
+        "iter": 200,
+        "val_loss": 2.01,
+        "folder": "adapters/law-qa-rank-4-best"
+      },
+      "last": {
+        "iter": 600,
+        "val_loss": 2.617
+      }
+    },
+    "test_best": {
+      "test_loss": 1.984,
+      "test_ppl": 7.27
+    },
+    "eval": {
+      "label": "rank-4",
+      "model": "/Users/erensaglam/Developer/fine turing/private-ai-studio/models/Llama-3.2-1B-Instruct-4bit",
+      "adapter": "adapters/law-qa-rank-4-best",
+      "n": 50,
+      "max_tokens": 256,
+      "temperature": 0.0,
+      "exact_match": 0.0,
+      "token_f1": 0.4155,
+      "rouge_l": 0.411,
+      "length_ratio_median": 1.2109999999999999,
+      "generated_tokens_mean": 72.82,
+      "hit_max_tokens": 7,
+      "tokens_per_second_median": 65.15,
+      "seconds_total": 72.5,
+      "peak_memory_gb_max": 1.011,
+      "prompt_tokens_mean": 94.98,
+      "rag_k": 0,
+      "retrieval_hit_rate": null
+    }
+  }
+}

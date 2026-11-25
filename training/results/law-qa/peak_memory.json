@@ -1,0 +1,9 @@
+{
+  "what": "Peak MLX memory of one full epoch (100 iters) with training/configs/law-qa-lora.yaml, measured with mx.get_peak_memory() around mlx_lm.lora.main()",
+  "date": "2026-11-24",
+  "peak_training_memory_gb": 2.002,
+  "seconds_for_100_iters_incl_2_val": 348,
+  "val_loss_iter1": 3.211,
+  "val_loss_iter100": 1.993,
+  "note": "Ran while the experiment chain used the GPU, so the time is pessimistic. Val losses equal the control run exactly (seed 42) -> training is reproducible."
+}

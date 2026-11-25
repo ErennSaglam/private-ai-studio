@@ -1,0 +1,19 @@
+Loading pretrained model
+Loading datasets
+Testing
+Test loss 1.984, Test ppl 7.270.
+
+Calculating loss...:   0%|          | 0/12 [00:00<?, ?it/s]
+Calculating loss...:   8%|▊         | 1/12 [00:01<00:11,  1.00s/it]
+Calculating loss...:  17%|█▋        | 2/12 [00:02<00:10,  1.05s/it]
+Calculating loss...:  25%|██▌       | 3/12 [00:03<00:10,  1.19s/it]
+Calculating loss...:  33%|███▎      | 4/12 [00:04<00:08,  1.12s/it]
+Calculating loss...:  42%|████▏     | 5/12 [00:05<00:07,  1.11s/it]
+Calculating loss...:  50%|█████     | 6/12 [00:06<00:06,  1.14s/it]
+Calculating loss...:  58%|█████▊    | 7/12 [00:07<00:05,  1.13s/it]
+Calculating loss...:  67%|██████▋   | 8/12 [00:08<00:04,  1.10s/it]
+Calculating loss...:  75%|███████▌  | 9/12 [00:10<00:03,  1.12s/it]
+Calculating loss...:  83%|████████▎ | 10/12 [00:11<00:02,  1.23s/it]
+Calculating loss...:  92%|█████████▏| 11/12 [00:12<00:01,  1.20s/it]
+Calculating loss...: 100%|██████████| 12/12 [00:13<00:00,  1.18s/it]
+Calculating loss...: 100%|██████████| 12/12 [00:13<00:00,  1.15s/it]

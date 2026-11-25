@@ -1,0 +1,41 @@
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/select_best.py /Users/erensaglam/Developer/fine turing/private-ai-studio/training/results/law-qa/train_control.log adapters/law-qa-r8
+  done in 0s
+$ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --test --test-batches -1 --batch-size 4 --mask-prompt --max-seq-length 512 --adapter-path  --seed 42
+  done in 9s
+$ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --test --test-batches -1 --batch-size 4 --mask-prompt --max-seq-length 512 --adapter-path adapters/law-qa-r8 --seed 42
+  done in 10s
+$ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --test --test-batches -1 --batch-size 4 --mask-prompt --max-seq-length 512 --adapter-path adapters/law-qa-r8-best --seed 42
+  done in 10s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label base
+  done in 330s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label lora --adapter adapters/law-qa-r8-best
+  done in 104s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label rag --rag-k 3
+  done in 197s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label lora_rag --adapter adapters/law-qa-r8-best --rag-k 3
+  done in 52s
+$ mlx_lm.lora -c /Users/erensaglam/Developer/fine turing/private-ai-studio/training/configs/series/lr-5e-6.yaml
+  done in 2032s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/select_best.py /Users/erensaglam/Developer/fine turing/private-ai-studio/training/results/law-qa/train_lr-5e-6.log adapters/law-qa-lr-5e-6
+  done in 0s
+$ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --test --test-batches -1 --batch-size 4 --mask-prompt --max-seq-length 512 --adapter-path adapters/law-qa-lr-5e-6-best --seed 42
+  done in 14s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label lr-5e-6 --adapter adapters/law-qa-lr-5e-6-best
+  done in 65s
+$ mlx_lm.lora -c /Users/erensaglam/Developer/fine turing/private-ai-studio/training/configs/series/lr-2e-5.yaml
+  done in 33806s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/select_best.py /Users/erensaglam/Developer/fine turing/private-ai-studio/training/results/law-qa/train_lr-2e-5.log adapters/law-qa-lr-2e-5
+  done in 0s
+$ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --test --test-batches -1 --batch-size 4 --mask-prompt --max-seq-length 512 --adapter-path adapters/law-qa-lr-2e-5-best --seed 42
+  done in 11s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label lr-2e-5 --adapter adapters/law-qa-lr-2e-5-best
+  done in 41s
+$ mlx_lm.lora -c /Users/erensaglam/Developer/fine turing/private-ai-studio/training/configs/series/rank-4.yaml
+  done in 2041s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/select_best.py /Users/erensaglam/Developer/fine turing/private-ai-studio/training/results/law-qa/train_rank-4.log adapters/law-qa-rank-4
+  done in 0s
+$ mlx_lm.lora --model models/Llama-3.2-1B-Instruct-4bit --data data/law-qa --test --test-batches -1 --batch-size 4 --mask-prompt --max-seq-length 512 --adapter-path adapters/law-qa-rank-4-best --seed 42
+  done in 16s
+$ /Users/erensaglam/Developer/fine turing/private-ai-studio/backend/.venv/bin/python training/evaluate.py --label rank-4 --adapter adapters/law-qa-rank-4-best
+  done in 74s
+$ mlx_lm.lora -c /Users/erensaglam/Developer/fine turing/private-ai-studio/training/configs/series/rank-16.yaml

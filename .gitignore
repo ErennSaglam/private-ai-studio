@@ -1,0 +1,32 @@
+# Model weights, LoRA adapters and training data stay out of Git.
+models/*
+!models/.gitkeep
+adapters/*
+!adapters/.gitkeep
+data/*
+!data/.gitkeep
+*.safetensors
+*.gguf
+*.npz
+
+# Exception: the best adapter of the law-QA experiment (22 MB). It was trained on a public
+# Apache-2.0 dataset, so it is safe to share and lets anyone try the fine-tuned model.
+!adapters/law-qa-r8-best/
+!adapters/law-qa-r8-best/adapters.safetensors
+!adapters/law-qa-r8-best/adapter_config.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / Vite
+node_modules/
+frontend/dist/
+
+# Secrets and local settings
+.env
+.env.*
+
+# macOS
+.DS_Store

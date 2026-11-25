@@ -1,0 +1,4 @@
+# Extra packages for the training pipeline (installed into backend/.venv on top of backend/requirements.txt).
+# The serving backend does not need them.
+pandas==2.3.3
+pyarrow==22.0.0
